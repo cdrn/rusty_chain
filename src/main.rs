@@ -3,6 +3,7 @@ use std::process;
 
 use rusty_chain::ingest_file;
 use rusty_chain::tokenise_string;
+use rusty_chain::LanguageModel;
 
 fn main() {
     // We have to ingest our args in main
@@ -23,5 +24,6 @@ fn main() {
     println!("Our tokenised string looks like... {:?}", tokenised_string);
 
     // Now we want to construct a markov chain (Trie?) based on these outputs
-    
+    let language_model = LanguageModel::new();
+    language_model.generate_markov_chain(&tokenised_string);
 }
